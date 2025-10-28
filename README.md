@@ -1,6 +1,6 @@
 # 🌙 Concept de bază — “The Forgotten Gallery” (nu e varianta finala ❗)
-Gen: puzzle adventure 2D
-Temă: redescoperirea artei românești pierdute în timp
+- Gen: puzzle adventure 2D
+- Temă: redescoperirea artei românești pierdute în timp
 
 ## 🎨 Povestea
 Te trezești într-un muzeu gol, noaptea.
