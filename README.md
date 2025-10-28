@@ -1,4 +1,4 @@
-# 🌙 Concept de bază — “The Forgotten Gallery” / „Galeria uitată” (nu e varianta finala ❗)
+# 🌙 Concept de bază — “The Forgotten Gallery” (nu e varianta finala ❗)
 Gen: puzzle adventure 2D
 Temă: redescoperirea artei românești pierdute în timp
 
