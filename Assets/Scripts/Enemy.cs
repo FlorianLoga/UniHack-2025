@@ -18,10 +18,16 @@ public class Enemy : MonoBehaviour
     private void Shoot()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 0.6f, 0), Vector2.down);
-        if (hit.collider == null || hit.transform.tag != "Enemy")
+        if (Physics2D.Raycast(transform.position + new Vector3(0, -1.5f, 0), Vector2.down, 2f))
         {
-            Debug.Log("Raycast nulled");
+            //Debug.Log("Other enemy in front");
+
+        }
+        else
+        {
+            print("spawn bullet");
             Instantiate(enemyProjectile, transform.position - new Vector3(0, 0.4f, 0), Quaternion.identity);
+
         }
     }
 

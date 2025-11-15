@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private Rigidbody2D rb;
-
+    [SerializeField] private bool isEnemy;
 
     //void Update()
     //{
@@ -15,17 +15,24 @@ public class Projectile : MonoBehaviour
 
       void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(0, 1 * speed * Time.deltaTime);
+        rb.linearVelocity = new Vector2(0, isEnemy ? -1 * speed * Time.deltaTime : 1 * speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        print(collision.tag);
+        if (!isEnemy && collision.gameObject.tag == "Enemy")
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            PlayerController playerController = player.GetComponent<PlayerController>();
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            // PlayerController playerController = player.GetComponent<PlayerController>();
+            print("hit into enemy");
             Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        else if (isEnemy == true && collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

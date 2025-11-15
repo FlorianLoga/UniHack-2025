@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float horizontalOffset = 1.5f;
-    [SerializeField] private float verticalOffset = 10.5f;
+    [SerializeField] private float verticalOffset = 0.5f;
 
     [SerializeField] private float verticalStart = 5.5f;
     [SerializeField] private float horizontalStart = -7f;
@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float verticalMoveAmount = -0.5f;
     [SerializeField] private float horizontalMoveAmount = 0.25f;
     [SerializeField] private float moveDelay = 0.2f;
+
+    [SerializeField] private float maxNumberOfSteps = 30f;
+    private int currentSteps = 0;
 
     [SerializeField] GameObject enemy;
 
@@ -35,7 +38,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
     private void MoveEnemies()
     {
@@ -44,26 +47,37 @@ public class GameManager : MonoBehaviour
             Vector3 currentPos = enemy.transform.position;
             enemy.transform.position = currentPos + new Vector3(horizontalMoveAmount, 0, 0);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy" && !hasCollided)
+        currentSteps++;
+        if (currentSteps >= maxNumberOfSteps)
         {
-            hasCollided = true;
-            Invoke("ResetHasCollided", 2f);
+            currentSteps = 0;
             horizontalMoveAmount *= -1;
-
+            Vector3 down = new Vector3(0, verticalMoveAmount, 0);
             foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                Vector3 currentPos = enemy.transform.position;
-                enemy.transform.position = currentPos - new Vector3(0, verticalMoveAmount, 0);
+                enemy.transform.position -= down;
             }
         }
     }
 
-    private void ResetHasCollided()
-    {
-        hasCollided = false;
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Wall" && !hasCollided)
+    //    {
+    //        hasCollided = true;
+    //        Invoke(nameof(ResetHasCollided), 2f);
+    //        horizontalMoveAmount *= -1;
+
+    //        foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+    //        {
+    //            Vector3 currentPos = enemy.transform.position;
+    //            enemy.transform.position = currentPos - new Vector3(0, verticalMoveAmount, 0);
+    //        }
+    //    }
+    //}
+
+    //private void ResetHasCollided()
+    //{
+    //    hasCollided = false;
+    //}
 }

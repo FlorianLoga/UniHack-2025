@@ -2098,13 +2098,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c882d6920787c3847b67bc3f5e87a75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  horizontalOffset: -1
-  verticalOffset: 1.5
-  verticalStart: -7.5
-  horizontalStart: 3.5
+  horizontalOffset: 1
+  verticalOffset: 1
+  verticalStart: 4
+  horizontalStart: -8
   verticalMoveAmount: 0.5
   horizontalMoveAmount: 0.25
   moveDelay: 0.5
+  maxNumberOfSteps: 30
   enemy: {fileID: 8987836283330690809, guid: 213a1a87b7307aa4ebb4abf5ea97da9a, type: 3}
 --- !u!4 &496829696
 Transform:
@@ -2281,29 +2282,14 @@ GameObject:
   - component: {fileID: 1070494856}
   - component: {fileID: 1070494855}
   - component: {fileID: 1070494854}
-  - component: {fileID: 1070494853}
+  - component: {fileID: 1070494858}
   m_Layer: 0
   m_Name: Flota Daca(Player)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1070494853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070494852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91b8fe38a797f440b978c4498b2efa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 15
-  playerProjectile: {fileID: 2406079818570038239, guid: 1881784213c9fc445b5e1b88067be02e, type: 3}
-  lives: 3
 --- !u!61 &1070494854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2444,12 +2430,27 @@ Transform:
   m_GameObject: {fileID: 1070494852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -4.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070494858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070494852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478c4b1f2aa21dd428e41500fe053631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoatPlayerController
+  speed: 5
+  playerProjectile: {fileID: 2406079818570038239, guid: 1881784213c9fc445b5e1b88067be02e, type: 3}
+  lives: 3
 --- !u!1 &1202817945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,7 +2602,7 @@ GameObject:
   - component: {fileID: 1946124520}
   m_Layer: 0
   m_Name: 'RWall '
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2654,7 +2655,7 @@ GameObject:
   - component: {fileID: 2031061728}
   m_Layer: 0
   m_Name: LWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
