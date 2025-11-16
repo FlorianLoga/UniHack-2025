@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MuseumTiles_72
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
   m_Sprite: {fileID: 355274900, guid: 3c471a7c2cf174e46859f387b306e02b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14325306, g: 0.44474387, b: 0.4148224, a: 1}
   m_Transform:
     e00: 1
     e01: 0
